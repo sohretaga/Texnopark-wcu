@@ -1,0 +1,64 @@
+{% extends 'partials/simplebase.html' %}
+{% load static %}
+{% block content %}
+<!-- signup section -->
+
+<section class="signup_section layout_padding">
+    <div class="container">
+
+        <div class="heading_container d-flex flex-row justify-content-center">
+            <h2 class="pr-2 d-flex align-items-center">
+                <a href="{% url 'sign-in' %}">Giriş</a>
+            </h2>
+            <h2 class="pl-2 d-flex align-items-center">
+                <a href="{% url 'sign-up' %}" class="active">Qatıl</a>
+            </h2>
+        </div>
+        <div class="">
+            <div class="">
+                <div class="row">
+                    <div class="col-md-9 mx-auto">
+                        <div class="signup-form">
+                            <form action="" method="post">
+                                {% csrf_token %}
+                                <div>
+                                    <input type="text" placeholder="Ad " name="first_name">
+                                </div>
+                                <div>
+                                    <input type="text" placeholder="Soyad " name="last_name">
+                                </div>
+                                <div>
+                                    <input type="email" placeholder="Elektron poçt" name="email">
+                                </div>
+                                <div>
+                                    <input type="password" placeholder="Şifrə" name="password">
+                                </div>
+                                <div>
+                                    <input type="password" placeholder="Şifrə təkrar" name="password2">
+                                </div>
+                                {% if messages %}
+                                    <div style="color: red;">
+                                        {% for message in messages %}
+                                            <strong>
+                                                {{message}}
+                                            </strong>
+                                        {% endfor %}
+                                    </div>
+                                {% endif %}
+                                <div class="d-flex justify-content-center">
+                                    <button type="submit" class="btn_on-hover">
+                                        Qeydiyyatdan keç
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- end signup section -->
+{% endblock content %}

@@ -1,0 +1,60 @@
+{% extends 'partials/simplebase.html' %}
+{% load static %}
+
+{% block content %}
+    <!-- login section -->
+
+    <section class="login_section layout_padding">
+        <div class="container">
+
+            <div class="heading_container d-flex flex-row justify-content-center">
+                <h2 class="pr-2 d-flex align-items-center">
+                    <a href="{% url 'sign-in' %}" class="active">Giriş</a>
+                </h2>
+                <h2 class="pl-2 d-flex align-items-center">
+                    <a href="{% url 'sign-up' %}">Qatıl</a>
+                </h2>
+            </div>
+            <div class="">
+                <div class="">
+                    <div class="row">
+                        <div class="col-md-9 mx-auto">
+                            <div class="login-form">
+                                <form action="" method="post">
+                                    {% csrf_token %}
+                                    <div>
+                                        <input type="email" placeholder="Elektron poçt" name="email">
+                                    </div>
+                                    <div>
+                                        <input type="password" placeholder="Şifrə" name="password">
+                                    </div>
+                                    {% if messages %}
+                                        <div style="color: red;">
+                                            {% for message in messages %}
+                                                <strong>
+                                                    {{message}}
+                                                </strong>
+                                            {% endfor %}
+                                        </div>
+                                    {% endif %}
+                                    <div
+                                        class="d-flex justify-content-center align-items-center mt-2 flex-column flex-lg-row flex-md-row">
+                                        <button type="submit" class="btn_on-hover mt-0">
+                                            Giriş Et
+                                        </button>
+                                        <a href="forget.html"
+                                            class="forget-password ml-0 ml-lg-3 ml-md-3 mt-3 mt-lg-0 mt-md-0">Şifrəni unutdun?</a>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- end login section -->
+
+{% endblock content %}

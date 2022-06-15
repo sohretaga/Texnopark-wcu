@@ -1,0 +1,42 @@
+{% extends 'partials/simplebase.html' %}
+{% load static %}
+
+{% block content %}
+<!-- projects section -->
+
+<section class="portfolio_section layout_padding">
+  <div class="container">
+    <div class="heading_container">
+      <h2>
+        Layhələr
+      </h2>
+      <p>
+        {% if 'continuing' in request.path %}
+        Texnopark'da davam edən layhələr
+        {% else %}
+        Texnopark'da bitmiş layhələr
+        {% endif %}
+      </p>
+    </div>
+    <div class="layout_padding2-top">
+      <div class="row">
+        {% for project in projects %}
+        <div class="col-md-4 col-sm-6">
+          <div class="img-box">
+            <img src="{{project.image.url}}" alt="" style="width: 375px; height: 271px;">
+            <a href="/project/{{project.id}}">
+              <img src="{% static 'images/link.png' %}" alt="">
+            </a>
+          </div>
+          <a href="/project/{{project.id}}">
+            <span> <strong> {{project.title}} </strong> </span>
+          </a>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- end project section -->
+{% endblock content %}

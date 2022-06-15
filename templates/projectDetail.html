@@ -1,0 +1,33 @@
+{% extends 'partials/simplebase.html' %}
+{% load static %}
+{% block content %}
+
+  <!-- project detail section -->
+  <section class="about_section layout_padding">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="img-box">
+            <img src="{{project.image.url}}" alt="" />
+          </div>
+        </div>
+        <div class="col-md-5">
+          <div class="detail-box">
+            <div class="heading_container">
+              <h2>
+                {{project.title}} 
+              </h2>
+              <h6>{{project.finished_or_not}}</h6>
+            </div>
+            <p>
+              {{project.content}}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- end project detail section -->
+
+{% endblock content %}

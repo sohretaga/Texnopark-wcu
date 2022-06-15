@@ -1,0 +1,38 @@
+  {% extends 'partials/simplebase.html' %}
+  {% load static %}
+  
+  {% block content %}
+  <!-- news section -->
+
+  <section class="portfolio_section layout_padding">
+    <div class="container">
+      <div class="heading_container">
+        <h2>
+          Xəbərlər
+        </h2>
+        <p>
+          Texnopark'da ən son xəbərlər
+        </p>
+      </div>
+      <div class="layout_padding2-top">
+        <div class="row">
+          {% for news in news %}
+          <div class="col-md-4 col-sm-6">
+            <div class="img-box">
+              <img src="{{news.image.url}}" alt="" style="width: 375px; height: 271px;">
+              <a href="/news/{{news.id}}">
+                <img src="{% static 'images/link.png' %}" alt="">
+              </a>
+            </div>
+            <a href="/news/{{news.id}}">
+              <span> <strong> {{news.title}} </strong> </span>
+            </a>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- end news section -->
+{% endblock content %}

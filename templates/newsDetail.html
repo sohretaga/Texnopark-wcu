@@ -1,0 +1,32 @@
+{% extends 'partials/simplebase.html' %}
+{% load static %}
+{% block content %}
+
+  <!-- news detail section -->
+  <section class="about_section layout_padding">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="img-box">
+            <img src="{{news.image.url}}" alt="" />
+          </div>
+        </div>
+        <div class="col-md-5">
+          <div class="detail-box">
+            <div class="heading_container">
+              <h2>
+                {{news.title}}
+              </h2>
+            </div>
+            <p>
+              {{news.content}}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- end news detail section -->
+
+{% endblock content %}

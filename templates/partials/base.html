@@ -1,0 +1,263 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+
+  <title>Texnopark</title>
+
+  <!-- slider stylesheet -->
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.1.3/assets/owl.carousel.min.css" />
+
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}" />
+
+  <!-- fonts style -->
+  <link href="https://fonts.googleapis.com/css?family=Poppins:400,600,700&display=swap" rel="stylesheet">
+  <!-- Custom styles for this template -->
+  <link href="{% static 'css/style.css' %}" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="{% static 'css/responsive.css' %}" rel="stylesheet" />
+</head>
+
+<body>
+
+  <div class="hero_area">
+    <!-- header section strats -->
+    <header class="header_section">
+      <div class="container">
+        <nav class="navbar navbar-expand-lg custom_nav-container ">
+          <a class="navbar-brand" href="{% url 'index' %}">
+            <span>
+              Texnopark ʷᶜᵘ
+            </span>
+          </a>
+          </a>
+          <div class="mobile-nav d-flex justify-content-between align-items-center">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="s-1"> </span>
+              <span class="s-2"> </span>
+              <span class="s-3"> </span>
+            </button>
+            <div class="mobile-user-profile d-none d-flex justify-content-center align-items-center ml-3">
+              <img src="{% static 'images/user.png' %}" alt="" width="50" height="50">
+              <a href="" class="text-white ml-1">{{request.user.first_name}}</a>
+            </div>
+          </div>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <div class="d-flex ml-auto flex-column flex-lg-row align-items-center">
+              <ul class="navbar-nav  ">
+                <li class="nav-item active">
+                  <a class="nav-link" href="{% url 'index' %}">Ana səhifə <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'about' %}"> Haqqımızda</a>
+                </li>
+                <li class="nav-item">
+                  <!--<a class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="service.html"> Layhələr </a>-->
+                  <div class="btn-group">
+                    <a type="button" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Layhələr
+                    </a>
+                    <div class="dropdown-menu">
+                      <a class="dropdown-item" href="{% url 'finished-projects' %}">Bitmiş layhələr</a>
+                      <div class="dropdown-divider"></div>
+                      <a class="dropdown-item" href="{% url 'continuing-projects' %}">Davam edən layhələr</a>
+                    </div>
+                  </div>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'news' %}"> Xəbərlər </a>
+                </li>
+                <li class="nav-item">
+                  {% if request.path == "/" %}
+                  <a class="nav-link" href="#contact">Əlaqə </a>
+                  {% else %}
+                  <a class="nav-link" href="{% url 'contact' %}">Əlaqə </a>
+                  {% endif %}
+                </li>
+                {% if request.user.is_active %}
+                  <li class="nav-item">
+                    <a class="nav-link" href="{% url 'sign-out' %}">Çıxış</a>
+                  </li>
+                {% else %}
+                  <li class="nav-item">
+                    <a class="nav-link" href="{% url 'sign-in' %}">Giriş & Qatıl</a>
+                  </li>
+                {% endif %}
+              </ul>
+            </div>
+          </div>
+          <div class="user-profile d-flex justify-content-center align-items-center ml-2">
+            <img src="{% static 'images/user.png' %}" width="50" height="50">
+            <a href="" class="text-white">{{request.user.first_name}}</a>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <!-- end header section -->
+
+{% block content %}
+
+{% endblock %}
+
+<div class="footer_bg">
+  <!-- info section -->
+  <section class="info_section ">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3 mb-4 mb-md-0 d-flex d-md-block flex-column align-items-center text-center text-md-left ">
+          <div class="info_info">
+            <h5>
+              Informations
+            </h5>
+            <p>
+              ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+            </p>
+          </div>
+        </div>
+        <div class="col-md-3 mb-4 mb-md-0 d-flex d-md-block flex-column align-items-center text-center text-md-left ">
+          <div class="info_contact">
+            <h5>
+              About Shop
+            </h5>
+            <div>
+              <div class="img-box">
+                <img src="{% static 'images/location-white.png' %}" width="18px" alt="">
+              </div>
+              <p>
+                Azərbaycan , Bakı , İstiqlaliyyət küç 31 , AZ1001
+              </p>
+            </div>
+            <div>
+              <div class="img-box">
+                <img src="{% static 'images/telephone-white.png' %}" width="12px" alt="">
+              </div>
+              <p>
+                (+994 12) 492 74 18
+              </p>
+            </div>
+            <div>
+              <div class="img-box">
+                <img src="{% static 'images/envelope-white.png' %}" width="18px" alt="">
+              </div>
+              <p>
+                texnopark@wcu.edu.az
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 mb-4 mb-md-0 d-flex d-md-block flex-column align-items-center text-center text-md-left ">
+          <div class="info_insta">
+            <h5>
+              Instagram
+            </h5>
+            <div class="insta_container">
+              <div>
+                <a href="">
+                  <div class="insta-box b-1">
+                    <img src="{% static 'images/insta.png' %}" alt="">
+                  </div>
+                </a>
+                <a href="">
+                  <div class="insta-box b-2">
+                    <img src="{% static 'images/insta.png' %}" alt="">
+                  </div>
+                </a>
+              </div>
+
+              <div>
+                <a href="">
+                  <div class="insta-box b-3">
+                    <img src="{% static 'images/insta.png' %}" alt="">
+                  </div>
+                </a>
+                <a href="">
+                  <div class="insta-box b-4">
+                    <img src="{% static 'images/insta.png' %}" alt="">
+                  </div>
+                </a>
+              </div>
+              <div>
+                <a href="">
+                  <div class="insta-box b-3">
+                    <img src="{% static 'images/insta.png' %}" alt="">
+                  </div>
+                </a>
+                <a href="">
+                  <div class="insta-box b-4">
+                    <img src="{% static 'images/insta.png' %}" alt="">
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 d-flex d-md-block flex-column align-items-center text-center text-md-left ">
+          <div class="info_form ">
+            <h5>
+              Xəbərlərə abunə olun
+            </h5>
+            <form action="">
+              <input type="email" placeholder="Elektron poçtunuzu yazın">
+              <button>
+                Abunə ol
+              </button>
+            </form>
+            <div class="social_box">
+              <a href="">
+                <img src="{% static 'images/fb.png' %}" alt="">
+              </a>
+              <a href="">
+                <img src="{% static 'images/twitter.png' %}" alt="">
+              </a>
+              <a href="">
+                <img src="{% static 'images/linkedin.png' %}" alt="">
+              </a>
+              <a href="">
+                <img src="{% static 'images/youtube.png' %}" alt="">
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- end info_section -->
+
+
+  <!-- footer section -->
+  <section class="container-fluid footer_section">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-7 col-md-9 mx-auto">
+          <p>
+            &copy; 2022 Western Caspian University - Created By
+            <a href="https://www.linkedin.com/in/sohretaga">Shohrat Agazada</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- footer section -->
+
+</div>
+
+<script type="text/javascript" src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/bootstrap.js' %}"></script>
+
+</body>
+
+</html>
